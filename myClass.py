@@ -62,11 +62,13 @@ class Television(QMainWindow, Ui_MainWindow):
             if self.__muted == False:
                 self.__muted = True
                 self.volumeLabel.setText(str(0))
+                self.progressBar.setValue(0)
                 self.muteLabel.setText("ON")
             else:
                 temp_volume = self.__volume
                 self.__muted = False
                 self.volumeLabel.setText(str(temp_volume))
+                self.progressBar.setValue(temp_volume)
                 self.muteLabel.setText("OFF")
 
     def channel_up(self) -> None:
