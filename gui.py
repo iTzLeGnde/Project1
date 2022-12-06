@@ -19,7 +19,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.muteButton = QtWidgets.QPushButton(self.centralwidget)
-        self.muteButton.setGeometry(QtCore.QRect(180, 380, 191, 41))
+        self.muteButton.setGeometry(QtCore.QRect(170, 380, 201, 41))
         self.muteButton.setAutoFillBackground(False)
         self.muteButton.setStyleSheet("")
         self.muteButton.setObjectName("muteButton")
