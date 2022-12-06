@@ -9,7 +9,7 @@ class Television(QMainWindow, Ui_MainWindow):
     MAX_CHANNEL = 3
 
 
-    def __init__(self,*args, **kwargs):
+    def __init__(self,*args, **kwargs) -> None:
         '''
         Constructor to create initial state of a Television object.
         :param args:
