@@ -10,6 +10,11 @@ class Television(QMainWindow, Ui_MainWindow):
 
 
     def __init__(self,*args, **kwargs):
+        '''
+        Constructor to create initial state of a Television object.
+        :param args:
+        :param kwargs:
+        '''
         self.cpics = ["NoSignal.jpg", "beingSports.jpg", "CN.png", "CNN.jpeg"]
 
         super().__init__(*args, **kwargs)
@@ -29,36 +34,45 @@ class Television(QMainWindow, Ui_MainWindow):
         self.volumeLabel.setText("1")
         self.__currentChannel = self.cpics[1]
 
-    def __str__(self):
-        if self.__muted == True:
-            return f"TV status: Power = {self.__status}, Channel = {self.__channel}, Volume = {Television.MIN_VOLUME}"
-        else:
-            return f"TV status: Power = {self.__status}, Channel = {self.__channel}, Volume = {self.__volume}"
 
-    def power(self):
+
+    def power(self) -> None:
+        '''
+        Function to toggle the power of the Television object ON and OFF
+        '''
 
         if self.__status == False:
             self.__status = True
             self.ImageLabel.setPixmap(QtGui.QPixmap(self.__currentChannel))
+            self.powerLabel.setText("ON")
         else:
             self.__status = False
             self.ImageLabel.setPixmap(QtGui.QPixmap("NoSignal.jpg"))
+            self.powerLabel.setText("OFF")
 
 
 
 
-    def mute(self):
+    def mute(self) -> None:
+        '''
+        Function to toggle mute ON and OFF
+        '''
 
         if self.__status == True:
             if self.__muted == False:
                 self.__muted = True
                 self.volumeLabel.setText(str(0))
+                self.muteLabel.setText("ON")
             else:
                 temp_volume = self.__volume
                 self.__muted = False
                 self.volumeLabel.setText(str(temp_volume))
+                self.muteLabel.setText("OFF")
 
-    def channel_up(self):
+    def channel_up(self) -> None:
+        """
+        Function to change the Television channels up
+        """
         if self.__status == True:
             if self.__channel == Television.MAX_CHANNEL:
                 self.__channel = Television.MIN_CHANNEL
@@ -71,7 +85,10 @@ class Television(QMainWindow, Ui_MainWindow):
             self.ImageLabel.setPixmap(QtGui.QPixmap(self.__currentChannel))
 
 
-    def channel_down(self):
+    def channel_down(self) -> None:
+        """
+        Function to change the Television channels down
+        """
 
         if self.__status == True:
             if self.__channel == Television.MIN_CHANNEL:
@@ -86,14 +103,20 @@ class Television(QMainWindow, Ui_MainWindow):
             self.ImageLabel.setPixmap(QtGui.QPixmap(self.__currentChannel))
 
 
-    def volume_up(self):
+    def volume_up(self) -> None:
+        """
+        Function to increase the volume
+        """
         if self.__status == True:
             if self.__volume < Television.MAX_VOLUME:
                 self.__volume += 1
                 self.volumeLabel.setText(str(self.__volume))
                 self.progressBar.setValue(self.__volume)
 
-    def volume_down(self):
+    def volume_down(self) -> None:
+        """
+        Function to decrease the volume
+        """
         if self.__status == True:
             if self.__volume > Television.MIN_VOLUME:
                 self.__volume -= 1
