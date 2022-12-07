@@ -12,8 +12,6 @@ class Television(QMainWindow, Ui_MainWindow):
     def __init__(self,*args, **kwargs) -> None:
         '''
         Constructor to create initial state of a Television object.
-        :param args:
-        :param kwargs:
         '''
         self.cpics = ["NoSignal.jpg", "beingSports.jpg", "CN.png", "CNN.jpeg"]
 
