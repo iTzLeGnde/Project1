@@ -20,9 +20,9 @@
    <widget class="QPushButton" name="muteButton">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>170</x>
       <y>380</y>
-      <width>191</width>
+      <width>201</width>
       <height>41</height>
      </rect>
     </property>

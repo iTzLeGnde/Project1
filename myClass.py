@@ -9,11 +9,9 @@ class Television(QMainWindow, Ui_MainWindow):
     MAX_CHANNEL = 3
 
 
-    def __init__(self,*args, **kwargs):
+    def __init__(self,*args, **kwargs) -> None:
         '''
         Constructor to create initial state of a Television object.
-        :param args:
-        :param kwargs:
         '''
         self.cpics = ["NoSignal.jpg", "beingSports.jpg", "CN.png", "CNN.jpeg"]
 
@@ -62,11 +60,13 @@ class Television(QMainWindow, Ui_MainWindow):
             if self.__muted == False:
                 self.__muted = True
                 self.volumeLabel.setText(str(0))
+                self.progressBar.setValue(0)
                 self.muteLabel.setText("ON")
             else:
                 temp_volume = self.__volume
                 self.__muted = False
                 self.volumeLabel.setText(str(temp_volume))
+                self.progressBar.setValue(temp_volume)
                 self.muteLabel.setText("OFF")
 
     def channel_up(self) -> None:
